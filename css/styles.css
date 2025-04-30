@@ -9,13 +9,14 @@
 
 html {
     width: 100%;
-    height: 100%;
+    height: 140%;
 }
 
 body {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-size: 16px;
 }
 
 main {
@@ -84,16 +85,34 @@ img[alt="A star icon"] {
 
 .question {
     width: 90%;
+    border: none;
+    background: none;
+    font-family: Work Sans;
     font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+    color: hsl(292, 42%, 14%);
+    transition: color 0.5s;
+}
+
+.question:hover {
+    cursor: pointer;
+    color: #ad28eb;
 }
 
 .icon-container {
     width: 10%;
 }
 
-img[alt="A plus icon"] {
+img[alt="A plus icon"],
+img[alt="A minus icon"] {
     width: 30px;
     height: 31px;
+}
+
+img[alt="A plus icon"]:hover,
+img[alt="A minus icon"]:hover {
+    cursor: pointer;
 }
 
 .answer {
@@ -103,11 +122,14 @@ img[alt="A plus icon"] {
 /* DESKTOP LAYOUT */
 
 @media screen and (min-width: 920px) {
+    html {
+        height: 100%;
+    }
     .background-pattern-container {
         background-image: url("../assets/images/background-pattern-desktop.svg");
     }
     #faq-container {
-        max-width: 720px;
+        max-width: 680px;
         border-radius: 15px;
     }
     #title-container > h1 {

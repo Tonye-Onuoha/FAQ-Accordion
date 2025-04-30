@@ -31,13 +31,13 @@ p {
 }
 
 .background-pattern-container {
-    height: 35%;
+    height: 40%;
     background-image: url("../assets/images/background-pattern-mobile.svg");
     background-size: cover;
 }
 
 .background-container {
-    height: 65%;
+    height: 60%;
     background-color: hsl(275, 100%, 97%);
 }
 
@@ -121,7 +121,7 @@ img[alt="A minus icon"]:hover {
 
 /* DESKTOP LAYOUT */
 
-@media screen and (min-width: 920px) {
+@media screen and (min-width: 840px) {
     html {
         height: 100%;
     }
@@ -129,7 +129,7 @@ img[alt="A minus icon"]:hover {
         background-image: url("../assets/images/background-pattern-desktop.svg");
     }
     #faq-container {
-        max-width: 680px;
+        max-width: 600px;
         border-radius: 15px;
     }
     #title-container > h1 {

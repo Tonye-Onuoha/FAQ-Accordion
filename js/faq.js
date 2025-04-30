@@ -1,15 +1,15 @@
-const plusIconsArray = Array.from(document.querySelectorAll("img[alt='A plus icon']"));
+const iconsArray = Array.from(document.querySelectorAll("img[alt='A plus icon']"));
 const questionContainersArray = Array.from(document.getElementsByClassName("question-container"));
 const questionsArray = Array.from(document.getElementsByClassName("question"));
 const answersArray = Array.from(document.getElementsByClassName("answer"));
-const displayedAnswers = new Set();
+const displayedAnswers = new Set(); // To keep track of the indexes of the displayed answers.
 
 const showAnswer = (e, index) => {
     if (e.currentTarget.src) {
         e.currentTarget.src = "assets/images/icon-minus.svg";
         e.currentTarget.alt = "A minus icon";
     } else {
-        const icon = plusIconsArray[index];
+        const icon = iconsArray[index];
         icon.src = "assets/images/icon-minus.svg";
         icon.alt = "A minus icon";
     }
@@ -27,7 +27,7 @@ const hideAnswer = (e, index) => {
         e.currentTarget.src = "assets/images/icon-plus.svg";
         e.currentTarget.alt = "A plus icon";
     } else {
-        const icon = plusIconsArray[index];
+        const icon = iconsArray[index];
         icon.src = "assets/images/icon-plus.svg";
         icon.alt = "A plus icon";
     }
@@ -40,7 +40,7 @@ const hideAnswer = (e, index) => {
     questionContainer.style.borderBottom = "1px solid lightgray";
 };
 
-const iconHandler = (index, e) => {
+const clickHandler = (index, e) => {
     // The event object is accessible in the function as "event" or the name of the last defined parameter (i.e "e" in this case).
     if (!displayedAnswers.has(index)) {
         displayedAnswers.add(index);
@@ -51,14 +51,14 @@ const iconHandler = (index, e) => {
     }
 };
 
-plusIconsArray.forEach((plusIcon, index) => {
+iconsArray.forEach((plusIcon, index) => {
     // The event object is passed automatically as the last argument whether its parameter is defined or not.
     // Therefore the event-handler function will be called as "iconHandler(index, eventObject)".
-    plusIcon.addEventListener("click", iconHandler.bind(null, index));
+    plusIcon.addEventListener("click", clickHandler.bind(null, index));
 });
 
 questionsArray.forEach((question, index) => {
     // The event object is passed automatically as the last argument whether its parameter is defined or not.
     // Therefore the event-handler function will be called as "iconHandler(index, eventObject)".
-    question.addEventListener("click", iconHandler.bind(null, index));
+    question.addEventListener("click", clickHandler.bind(null, index));
 });

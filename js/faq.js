@@ -53,12 +53,12 @@ const clickHandler = (index, e) => {
 
 iconsArray.forEach((plusIcon, index) => {
     // The event object is passed automatically as the last argument whether its parameter is defined or not.
-    // Therefore the event-handler function will be called as "iconHandler(index, eventObject)".
+    // Therefore the event-handler function will be called as "clickHandler(index, eventObject)".
     plusIcon.addEventListener("click", clickHandler.bind(null, index));
 });
 
 questionsArray.forEach((question, index) => {
     // The event object is passed automatically as the last argument whether its parameter is defined or not.
-    // Therefore the event-handler function will be called as "iconHandler(index, eventObject)".
+    // Therefore the event-handler function will be called as "clickHandler(index, eventObject)".
     question.addEventListener("click", clickHandler.bind(null, index));
 });

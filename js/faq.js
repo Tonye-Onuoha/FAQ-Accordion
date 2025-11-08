@@ -3,6 +3,8 @@ const questionContainersArray = Array.from(document.getElementsByClassName("ques
 const questionsArray = Array.from(document.getElementsByClassName("question"));
 const answersArray = Array.from(document.getElementsByClassName("answer"));
 const displayedAnswers = new Set(); // To keep track of the indexes of the displayed answers.
+const main = document.getElementById("main");
+const faqContainer = document.getElementById("faq-container");
 
 const showAnswer = (e, index) => {
     if (e.currentTarget.src) {
@@ -18,6 +20,13 @@ const showAnswer = (e, index) => {
     const answer = answersArray[index];
     answer.style.display = "block";
     answer.style.paddingBottom = "25px";
+    const mainComputedStyles = window.getComputedStyle(main);
+    const faqContainerComputedStyles = window.getComputedStyle(faqContainer);
+    if (faqContainerComputedStyles.height === mainComputedStyles.height) {
+        main.style.height = parseInt(mainComputedStyles.height) + 200 + "px";
+    } else if (parseInt(faqContainerComputedStyles.height) > parseInt(mainComputedStyles.height)) {
+        main.style.height = parseInt(faqContainerComputedStyles.height) + 200 + "px";
+    }
     if (index === 3) return;
     answer.style.borderBottom = "1px solid lightgray";
 };
